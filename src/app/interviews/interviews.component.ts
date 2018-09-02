@@ -1,25 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 
-export interface Interviews {
-  interview: InterviewRound;
-  interviewer: string;
-  date: string;
-  result: InterviewResult;
-}
-
-export enum InterviewRound {
-  ROUND_ONE = 'Round#1',
-  ROUND_TWO = 'Round#2',
-  ROUND_THREE = 'Round#3',
-  HR_ROUND = 'HR Round'
-}
-
-export enum InterviewResult {
-  SELECTED = 'Selected',
-  REJECTED = 'Rejected',
-  OFFERED = 'Offered',
-}
+import { Interviews, InterviewRound, InterviewResult } from '../../models';
 
 export function getMockedData(): Interviews[] {
   const data: Interviews[] = [];

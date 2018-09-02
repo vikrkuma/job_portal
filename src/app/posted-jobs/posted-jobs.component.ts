@@ -1,17 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 
-export interface PostedJobs {
-  company: string;
-  title: string;
-  datePosted: string;
-  status: JobStatus;
-}
-
-export enum JobStatus {
-  OPEN = 'Open',
-  CLOSED = 'Closed',
-}
+import { PostedJobs, JobStatus } from '../../models';
 
 export function getMockedData(): PostedJobs[] {
   const data = [];

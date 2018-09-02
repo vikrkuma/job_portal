@@ -1,12 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 
-export interface ShortListedCandidates {
-  name: string;
-  worksAt: string;
-  experience: string;
-  ctc: string;
-}
+import { ShortListedCandidates } from '../../models';
 
 export function getMockedData(): ShortListedCandidates[] {
   const data: ShortListedCandidates[] = [];
