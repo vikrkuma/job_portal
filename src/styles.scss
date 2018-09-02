@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'material-theme';
+
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+}
+
+.title {
+  @include mat-typography-level-to-styles($typography-config, title);
+  color: mat-color($primary);
+}

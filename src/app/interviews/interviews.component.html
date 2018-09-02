@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title class="title">Interviews</mat-card-title>
+  </mat-card-header>
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z1">
+    <ng-container [matColumnDef]="dc.column" *ngFor="let dc of dataColumns">
+      <mat-header-cell *matHeaderCellDef> {{dc.label}}  </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element[dc.column]}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</mat-card>
