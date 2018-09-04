@@ -1,55 +1,49 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { InterviewsService } from './../../services/interviews.service';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 
-import { Interviews, InterviewRound, InterviewResult } from '../../models';
-
-export function getMockedData(): Interviews[] {
-  const data: Interviews[] = [];
-  for (let i = 1; i < 101; i++) {
-    let interview = InterviewRound.ROUND_ONE;
-    let result = InterviewResult.SELECTED;
-    if (i % 3 === 0) {
-      interview = InterviewRound.ROUND_TWO;
-      if (i % 5 === 0) {
-        result = InterviewResult.REJECTED;
-      }
-    } else if (i % 5 === 0) {
-      interview = InterviewRound.ROUND_THREE;
-    } else if (i % 7 === 0) {
-      interview = InterviewRound.HR_ROUND;
-      result = InterviewResult.OFFERED;
-    }
-    data.push({
-      interview,
-      interviewer: `Interviewer ${i}`,
-      date: new Date(2000, 1, i).toDateString(),
-      result
-    });
-  }
-  return data;
-}
+import { Interview } from '../../models';
 
 @Component({
   selector: 'app-interviews',
   templateUrl: './interviews.component.html',
   styleUrls: ['./interviews.component.scss']
 })
-export class InterviewsComponent implements OnInit {
+export class InterviewsComponent implements AfterViewInit {
+  /** List of columns for which data is required to be displayed. */
   dataColumns: Array<{ column: string, label: string }> = [
     { column: 'interview', label: 'Interview' },
     { column: 'interviewer', label: 'Interviewer' },
     { column: 'date', label: 'Date' },
     { column: 'result', label: 'Result' }
   ];
+
   displayedColumns: string[] = this.dataColumns.map(({ column }) => column);
-  dataSource: MatTableDataSource<Interviews>;
+
+  dataSource: MatTableDataSource<Interview>;
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor() {
-    this.dataSource = new MatTableDataSource(getMockedData());
+  /**
+   * Initializes the table data source and on change of interview data
+   * populate it to the table. In case no data is received clear the previous
+   * data. Also on change of data navigate back to the first page.
+   */
+  constructor(readonly interviewsService: InterviewsService) {
+    this.dataSource = new MatTableDataSource();
+    interviewsService.interviews.subscribe(data => {
+      if (data && data.length) {
+        this.dataSource.data = data;
+      } else {
+        this.dataSource.data = [];
+      }
+      if (this.paginator) {
+        this.paginator.firstPage();
+      }
+    });
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
 }

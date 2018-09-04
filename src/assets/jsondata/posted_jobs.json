@@ -1,0 +1,23 @@
+[
+  {
+    "status": "Open",
+    "id": 1,
+    "datePosted": "May 27 2017",
+    "title": "Javascript Developer",
+    "company": "EGYPTO"
+  },
+  {
+    "status": "Open",
+    "id": 2,
+    "datePosted": "Oct 14 2017",
+    "title": "RUST Developer",
+    "company": "EZENTIA"
+  },
+  {
+    "status": "Closed",
+    "id": 3,
+    "datePosted": "Jul 11 2017",
+    "title": "Java Developer",
+    "company": "PARLEYNET"
+  }
+]

@@ -1,43 +1,67 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { InterviewsService } from './../../services/interviews.service';
+import { Component, AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 
-import { ShortListedCandidates } from '../../models';
-
-export function getMockedData(): ShortListedCandidates[] {
-  const data: ShortListedCandidates[] = [];
-  for (let i = 1; i < 101; i++) {
-    const experience = parseInt(`${Math.random() * 10 + 1}`);
-    data.push({
-      name: `Name ${i}`,
-      worksAt: `Company ${i}`,
-      experience: `${experience} YRS`,
-      ctc: `${(2.3869 * experience + Math.random() * 10).toFixed(2)}L`
-    });
-  }
-  return data;
-}
+import { ShortListedCandidate } from '../../models';
+import { ShortListingService } from '../../services/short-listing.service';
 
 @Component({
   selector: 'app-short-listed',
   templateUrl: './short-listed.component.html',
   styleUrls: ['./short-listed.component.scss']
 })
-export class ShortListedComponent implements OnInit {
+export class ShortListedComponent implements AfterViewInit {
+  /** List of columns for which data is required to be displayed. */
   dataColumns: Array<{ column: string, label: string }> = [
     { column: 'name', label: 'Name' },
     { column: 'worksAt', label: 'Works At' },
     { column: 'experience', label: 'Experience' },
     { column: 'ctc', label: 'CTC' }
   ];
+
+  /** Currently selected short listed candidate id. */
+  selectedId: number;
+
   displayedColumns: string[] = this.dataColumns.map(({ column }) => column);
-  dataSource: MatTableDataSource<ShortListedCandidates>;
+
+  dataSource: MatTableDataSource<ShortListedCandidate>;
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor() {
-    this.dataSource = new MatTableDataSource(getMockedData());
+  /**
+   * Initializes the table data source and on change of short listed candidates
+   * data populate it to the table. In case no data is received clear the
+   * previous data. Also on change of data navigate back to the first page.
+   */
+  constructor(
+    readonly shortListingService: ShortListingService,
+    private readonly interviewsService: InterviewsService) {
+    this.dataSource = new MatTableDataSource();
+    shortListingService.shortListedCandidate.subscribe(data => {
+      if (data && data.length) {
+        this.dataSource.data = data;
+        this.selectedId = data[0].id;
+        interviewsService.getInterviews(this.selectedId);
+      } else {
+        this.dataSource.data = [];
+        interviewsService.clearInterviews();
+      }
+      if (this.paginator) {
+        this.paginator.firstPage();
+      }
+    });
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+  }
+
+  /**
+   * Displays the list of interviews held by the candidates in-case any of the
+   * short listed candidate is selected by the user.
+   */
+  setSelectedCandidate(candidate: ShortListedCandidate) {
+    this.interviewsService.getInterviews(candidate.id);
+    this.selectedId = candidate.id;
   }
 }

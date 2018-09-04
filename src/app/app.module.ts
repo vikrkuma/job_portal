@@ -17,6 +17,8 @@ import { PostedJobsComponent } from './posted-jobs/posted-jobs.component';
 import { ShortListedComponent } from './short-listed/short-listed.component';
 import { InterviewsComponent } from './interviews/interviews.component';
 
+import { ServicesModule } from '../services/services.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +29,7 @@ import { InterviewsComponent } from './interviews/interviews.component';
   ],
   imports: [
     BrowserAnimationsModule,
+    ServicesModule,
     FormsModule,
     MatToolbarModule,
     MatCheckboxModule,

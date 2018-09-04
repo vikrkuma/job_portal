@@ -1,0 +1,98 @@
+[
+  {
+    "interviewer": "Tyler Holmes",
+    "date": "2016-11-29",
+    "candidateId": 1,
+    "id": 1,
+    "interview": "Round#1",
+    "result": "Selected"
+  },
+  {
+    "interviewer": "Brown Oconnor",
+    "date": "2017-02-09",
+    "candidateId": 1,
+    "id": 2,
+    "interview": "Round#2",
+    "result": "Selected"
+  },
+  {
+    "interviewer": "Joy Winters",
+    "date": "2014-10-01",
+    "candidateId": 1,
+    "id": 3,
+    "interview": "Round#3",
+    "result": "Selected"
+  },
+  {
+    "interviewer": "Spence Mcpherson",
+    "date": "2015-03-06",
+    "candidateId": 2,
+    "id": 4,
+    "interview": "Round#1",
+    "result": "Rejected"
+  },
+  {
+    "interviewer": "Boone Bell",
+    "date": "2016-12-20",
+    "candidateId": 1,
+    "id": 5,
+    "interview": "HR Round",
+    "result": "Offered"
+  },
+  {
+    "interviewer": "Letha Watkins",
+    "date": "2014-09-15",
+    "candidateId": 3,
+    "id": 6,
+    "interview": "Round#1",
+    "result": "Rejected"
+  },
+  {
+    "interviewer": "Mueller Hayes",
+    "date": "2015-06-21",
+    "candidateId": 4,
+    "id": 1,
+    "interview": "Round#1",
+    "result": "Rejected"
+  },
+  {
+    "interviewer": "Wilda Rowe",
+    "date": "2015-07-14",
+    "candidateId": 5,
+    "id": 2,
+    "interview": "Round#1",
+    "result": "Rejected"
+  },
+  {
+    "interviewer": "Amie Miranda",
+    "date": "2017-05-06",
+    "candidateId": 6,
+    "id": 3,
+    "interview": "Round#1",
+    "result": "Rejected"
+  },
+  {
+    "interviewer": "Sweet Moses",
+    "date": "2017-09-25",
+    "candidateId": 7,
+    "id": 4,
+    "interview": "Round#1",
+    "result": "Rejected"
+  },
+  {
+    "interviewer": "Lynch Lindsey",
+    "date": "2015-05-07",
+    "candidateId": 8,
+    "id": 5,
+    "interview": "Round#1",
+    "result": "Rejected"
+  },
+  {
+    "interviewer": "Ballard Deleon",
+    "date": "2015-04-25",
+    "candidateId": 9,
+    "id": 6,
+    "interview": "Round#1",
+    "result": "Rejected"
+  }
+]

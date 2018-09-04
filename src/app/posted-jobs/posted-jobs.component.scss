@@ -1,4 +1,18 @@
+@import '../../material-theme';
+
 :host {
   display: block;
   margin: .5em;
+}
+
+mat-row {
+  cursor: pointer;
+
+  &:hover {
+    background-color: $grey;
+  }
+
+  &.selected {
+    text-decoration: underline;
+  }
 }

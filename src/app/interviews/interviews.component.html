@@ -2,13 +2,18 @@
   <mat-card-header>
     <mat-card-title class="title">Interviews</mat-card-title>
   </mat-card-header>
-  <mat-table [dataSource]="dataSource" class="mat-elevation-z1">
-    <ng-container [matColumnDef]="dc.column" *ngFor="let dc of dataColumns">
-      <mat-header-cell *matHeaderCellDef> {{dc.label}}  </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element[dc.column]}} </mat-cell>
-    </ng-container>
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  <div class="no-data-message" [hidden]="dataSource.data.length">
+    No Interviews scheduled.
+  </div>
+  <div [hidden]="!dataSource.data.length">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z1">
+      <ng-container [matColumnDef]="dc.column" *ngFor="let dc of dataColumns">
+        <mat-header-cell *matHeaderCellDef> {{dc.label}}  </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element[dc.column]}} </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[2, 5, 10, 50]"></mat-paginator>
+  </div>
 </mat-card>

@@ -1,11 +1,11 @@
 <div fxLayout fxLayout fxLayoutAlign="center center" fxLayoutGap="2em">
-  <mat-checkbox>Open</mat-checkbox>
+  <mat-checkbox [(ngModel)]="jobOpened">Open</mat-checkbox>
 
-  <mat-checkbox>Closed</mat-checkbox>
+  <mat-checkbox [(ngModel)]="jobClosed">Closed</mat-checkbox>
 
   <mat-form-field>
-    <input matInput placeholder="Title">
+    <input matInput placeholder="Title" [(ngModel)]="title">
   </mat-form-field>
 
-  <button mat-raised-button>Search</button>
+  <button mat-raised-button (click)="searchJobs()">Search</button>
 </div>

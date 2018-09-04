@@ -1,6 +1,12 @@
+import { FakeInterviewsService } from './../../test_utils/fake_interviews.service';
+import { InterviewsService } from './../../services/interviews.service';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InterviewsComponent } from './interviews.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('InterviewsComponent', () => {
   let component: InterviewsComponent;
@@ -8,9 +14,17 @@ describe('InterviewsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InterviewsComponent ]
-    })
-    .compileComponents();
+      imports: [
+        NoopAnimationsModule,
+        MatCardModule,
+        MatTableModule,
+        MatPaginatorModule
+      ],
+      providers: [
+        { provide: InterviewsService, useClass: FakeInterviewsService }
+      ],
+      declarations: [InterviewsComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

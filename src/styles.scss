@@ -8,7 +8,20 @@ html, body {
   font-size: 16px;
 }
 
+/**
+ * Class for heading title in Job Postings, Short Listed Candidates and
+ * Interviews cards.
+ */
 .title {
   @include mat-typography-level-to-styles($typography-config, title);
   color: mat-color($primary);
+}
+
+/**
+ * Class for no data available text in Job Postings, Short Listed Candidates
+ * and Interviews.
+ */
+.no-data-message {
+  @include mat-typography-level-to-styles($typography-config, body-1);
+  margin-left: .6em;
 }

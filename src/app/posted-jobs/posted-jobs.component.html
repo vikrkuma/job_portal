@@ -2,13 +2,21 @@
   <mat-card-header>
     <mat-card-title class="title">Posted Jobs</mat-card-title>
   </mat-card-header>
-  <mat-table [dataSource]="dataSource" class="mat-elevation-z1">
-    <ng-container [matColumnDef]="dc.column" *ngFor="let dc of dataColumns">
-      <mat-header-cell *matHeaderCellDef> {{dc.label}}  </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element[dc.column]}} </mat-cell>
-    </ng-container>
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  <div class="no-data-message" [hidden]="dataSource.data.length">
+    No Jobs are posted. Kindly perform a search.
+  </div>
+  <div [hidden]="!dataSource.data.length">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z1">
+      <ng-container [matColumnDef]="dc.column" *ngFor="let dc of dataColumns">
+        <mat-header-cell *matHeaderCellDef> {{dc.label}}  </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element[dc.column]}} </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"
+               [class.selected]="selectedId === row.id"
+               (click)="setSelectedJobPosting(row)">
+      </mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[2, 5, 10, 50]"></mat-paginator>
+  </div>
 </mat-card>

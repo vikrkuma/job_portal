@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Savage Cantrell",
+    "postingId": 1,
+    "id": 1,
+    "experience": "13 YRS",
+    "ctc": "24.6L",
+    "worksAt": "BIZMATIC"
+  },
+  {
+    "name": "Glover Richard",
+    "postingId": 2,
+    "id": 2,
+    "experience": "3 YRS",
+    "ctc": "23.7L",
+    "worksAt": "MIRACLIS"
+  },
+  {
+    "name": "Williams Strong",
+    "postingId": 3,
+    "id": 3,
+    "experience": "16 YRS",
+    "ctc": "18.4L",
+    "worksAt": "FUTURIZE"
+  },
+  {
+    "name": "Stevenson Knight",
+    "postingId": 1,
+    "id": 4,
+    "experience": "10 YRS",
+    "ctc": "11.8L",
+    "worksAt": "COMVENE"
+  },
+  {
+    "name": "Emilia Phillips",
+    "postingId": 2,
+    "id": 5,
+    "experience": "10 YRS",
+    "ctc": "25L",
+    "worksAt": "INFOTRIPS"
+  },
+  {
+    "name": "Millie Ewing",
+    "postingId": 3,
+    "id": 6,
+    "experience": "10 YRS",
+    "ctc": "23.1L",
+    "worksAt": "ZORROMOP"
+  },
+  {
+    "name": "Harper Blackburn",
+    "postingId": 3,
+    "id": 7,
+    "experience": "5 YRS",
+    "ctc": "23.1L",
+    "worksAt": "COSMOSIS"
+  },
+  {
+    "name": "Alexandria Slater",
+    "postingId": 1,
+    "id": 8,
+    "experience": "3 YRS",
+    "ctc": "23.6L",
+    "worksAt": "SUPREMIA"
+  },
+  {
+    "name": "Leigh Harvey",
+    "postingId": 2,
+    "id": 9,
+    "experience": "18 YRS",
+    "ctc": "2.4L",
+    "worksAt": "XELEGYL"
+  }
+]
